@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  mediamtx:
+    image: aler9/mediamtx:latest
+    container_name: mediamtx
+    restart: unless-stopped
+    ports:
+      - "8554:8554" # RTSP
+      - "8888:8888" # RTMP (optional)
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+    command: ["/mediamtx", "-config", "/mediamtx.yml"]
+
+  janus:
+    image: meetecho/janus-gateway:latest
+    container_name: janus
+    restart: unless-stopped
+    ports:
+      - "7088:7088" # HTTP admin (optional)
+      - "8088:8088" # Janus HTTP API
+      - "8188:8188" # Janus HTTP API over WebSockets (optional)
+    volumes:
+      - ./janus:/opt/janus/etc/janus
+
+  proxy:
+    build: ./proxy
+    container_name: janus-proxy
+    restart: unless-stopped
+    ports:
+      - "8889:8889" # exposes /camera/whep
+    depends_on:
+      - janus
+      - mediamtx

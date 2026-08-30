@@ -1,9 +1,0 @@
-services:
-  pi-cam-stream:
-    build: .
-    container_name: pi-cam-stream
-    network_mode: host
-    privileged: true
-    restart: unless-stopped
-    env_file:
-      - .env
