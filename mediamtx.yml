@@ -144,11 +144,11 @@ authJWTAudience:
 # Global settings -> Control API
 
 # Enable the control API server, which allows to control the server.
-api: false
+api: true
 # Address of the TCP/HTTP listener.
 apiAddress: :9997
 # Enable HTTPS.
-apiEncryption: false
+apiEncryption: true
 # Path to the server key. This is needed only when encryption is yes.
 # This can be generated with:
 # openssl genrsa -out server.key 2048
@@ -870,9 +870,11 @@ pathDefaults:
 # for example "~^(test1|test2)$" will match both "test1" and "test2",
 # for example "~^prefix" will match all paths that start with "prefix".
 paths:
-   camera:
-     source: udp+mpegts://0.0.0.0:8888?source=10.50.1.1
-
+    camera:
+      source: udp+mpegts://0.0.0.0:8888?source=10.50.1.1
+    detected:
+      source: publisher
+      
   # Settings under path "all_others" are applied to all paths that
   # do not match another entry.
   #  all_others:

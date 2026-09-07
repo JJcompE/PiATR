@@ -1,5 +1,16 @@
 # PiATR
 
 ## Architecture
-RPicam-vid → ffmpeg → MediaMTX → WHEP/WebRTC → browser
-H264, MPEGTS over UDP
+Pi camera
+   ↓
+rpicam-vid / H.264
+   ↓
+MPEG-TS over UDP
+   ↓
+Laptop :8888
+   ↓
+MediaMTX
+   ↓
+WHEP/WebRTC
+   ↓
+Browser
