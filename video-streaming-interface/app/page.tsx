@@ -7,7 +7,7 @@ type ConnectionState = 'idle' | 'connecting' | 'live' | 'error'
 export default function Page() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const peerRef = useRef<RTCPeerConnection | null>(null)
-  const [draftEndpoint, setDraftEndpoint] = useState('http://localhost:8889/camera/whep')
+  const [draftEndpoint, setDraftEndpoint] = useState('http://10.50.1.1:9000/camera/whep')
   const [status, setStatus] = useState<ConnectionState>('idle')
   const [error, setError] = useState('')
   const [muted, setMuted] = useState(true)

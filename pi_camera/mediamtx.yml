@@ -144,7 +144,7 @@ authJWTAudience:
 # Global settings -> Control API
 
 # Enable the control API server, which allows to control the server.
-api: true
+api: false
 # Address of the TCP/HTTP listener.
 apiAddress: :9997
 # Enable HTTPS.
@@ -240,7 +240,7 @@ playbackTrustedProxies: []
 # Global settings -> RTSP server
 
 # Enable the RTSP server, which allows to publish and read streams with the RTSP protocol.
-rtsp: true
+rtsp: false
 # Enabled RTSP transport protocols. The handshake is always performed with TCP.
 rtspTransports: [udp, multicast, tcp]
 # Use secure protocol variants (RTSPS, SRTP, SRTCP).
@@ -871,9 +871,8 @@ pathDefaults:
 # for example "~^prefix" will match all paths that start with "prefix".
 paths:
     camera:
-      source: udp+mpegts://0.0.0.0:8888?source=10.50.1.1
-    detected:
-      source: publisher
+      # source: udp+mpegts://0.0.0.0:8888?source=10.50.1.1
+      source: udp+mpegts://0.0.0.0:9000
       
   # Settings under path "all_others" are applied to all paths that
   # do not match another entry.
