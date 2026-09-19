@@ -87,18 +87,6 @@ print(
     f"{MODEL_WIDTH}x{MODEL_HEIGHT}"
 )
 
-
-# ============================================================
-# EfficientDet output layout
-#
-# Official EfficientDet-Lite0:
-#
-# output 0 = boxes   [1, 25, 4]
-# output 1 = classes [1, 25]
-# output 2 = scores  [1, 25]
-# output 3 = count   [1]
-# ============================================================
-
 if len(output_details) != 4:
     raise RuntimeError(
         "Unexpected model output layout. "

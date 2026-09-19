@@ -82,8 +82,7 @@ The detector expects the model at:
 
 The streaming host requires:
 
-* Docker.
-* Docker Compose.
+* mediamtx
 * Node.js 18 or newer.
 * npm or pnpm.
 
@@ -162,24 +161,19 @@ udp://127.0.0.1:9000
 
 ---
 
-# Starting the Gateway
+# Starting the detector and gateway
 
-From the directory containing the gateway `docker-compose.yml`:
+From the directory containing the gateway `mediamtx.yml`:
 
 ```bash
-docker compose up
+mediamtx mediamtx.yml
 ```
 
-To run it in the background:
+From the directory containing the python env and script:
 
 ```bash
-docker compose up -d
-```
-
-Check service state with:
-
-```bash
-docker compose ps
+source ~/vision-env/bin/activate
+python detector.py
 ```
 
 ---
@@ -199,5 +193,7 @@ or, when using pnpm:
 pnpm install
 pnpm dev
 ```
+
+Open web browser and connect to `http://localhost:3000/`
 
 ---
