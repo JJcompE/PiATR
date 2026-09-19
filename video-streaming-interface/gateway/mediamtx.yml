@@ -1,0 +1,6 @@
+paths:
+  # Expose a single RTSP mountpoint named 'stream'
+  /stream:
+    publish: yes
+    readTimeout: 10s
+    runOnPublish: []

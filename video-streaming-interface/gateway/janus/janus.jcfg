@@ -1,0 +1,11 @@
+/* Minimal Janus config override for the streaming plugin */
+
+general: {
+  server_name = "Janus Gateway"
+}
+
+plugins: {
+  streaming: {
+    enabled = yes
+  }
+}
